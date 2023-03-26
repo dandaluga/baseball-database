@@ -68,7 +68,6 @@ createuser -U postgres --no-createdb --no-superuser --no-createrole --pwprompt a
 -- CREATE THE DATABASE
 -- ============================================================================================================
 -- This will create a new database in your cluster and make the owner be the username you chose.
-C:\PostgreSQL\14\bin\createdb --owner=api2022 baseball
 createdb -U postgres --owner=api2022 baseball
 
 -- ============================================================================================================
@@ -76,7 +75,6 @@ createdb -U postgres --owner=api2022 baseball
 -- ============================================================================================================
 -- This will create the database tables for the schema (year2022). At this point, you can use your favorite
 -- SQL client see the structure of the tables.
-C:\PostgreSQL\14\bin\psql -U api2022 -d baseball -f "c:\dev\baseball\database\2022\baseball_schema.ddl"
 psql -U api2022 -d baseball -f ~/Development/baseball-database/2022/baseball_schema.ddl
 
 -- ============================================================================================================
