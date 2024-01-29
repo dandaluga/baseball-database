@@ -1,0 +1,12 @@
+2024-01-28 17:24:43.391 CST [17533] LOG:  starting PostgreSQL 16.1 (Homebrew) on aarch64-apple-darwin23.2.0, compiled by Apple clang version 15.0.0 (clang-1500.1.0.2.5), 64-bit
+2024-01-28 17:24:43.393 CST [17533] LOG:  listening on IPv6 address "::1", port 5432
+2024-01-28 17:24:43.393 CST [17533] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-01-28 17:24:43.393 CST [17533] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-01-28 17:24:43.397 CST [17536] LOG:  database system was shut down at 2024-01-28 17:24:30 CST
+2024-01-28 17:24:43.400 CST [17533] LOG:  database system is ready to accept connections
+2024-01-28 17:24:49.000 CST [17534] LOG:  checkpoint starting: immediate force wait
+2024-01-28 17:24:49.001 CST [17534] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=5, longest=0.001 s, average=0.001 s; distance=6 kB, estimate=6 kB; lsn=0/BBD6D88, redo lsn=0/BBD6D50
+2024-01-28 17:27:11.344 CST [17602] ERROR:  role "mlbapi" already exists
+2024-01-28 17:27:11.344 CST [17602] STATEMENT:  CREATE ROLE mlbapi PASSWORD 'SCRAM-SHA-256$4096:sGKwcLP4h9Tb4Vv3MPVUOw==$LwF5qHLubpaA9bIGtrXOqh4g14JnRzXlmm46W06rG24=:+s29v/8c5BoHexK9JE3N847+Y/mTFUEiy+OYaFXd6u0=' NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN NOREPLICATION NOBYPASSRLS;
+2024-01-28 17:29:49.078 CST [17534] LOG:  checkpoint starting: time
+2024-01-28 17:34:19.130 CST [17534] LOG:  checkpoint complete: wrote 11392 buffers (69.5%); 0 WAL file(s) added, 0 removed, 26 recycled; write=270.009 s, sync=0.032 s, total=270.052 s; sync files=568, longest=0.002 s, average=0.001 s; distance=417814 kB, estimate=417814 kB; lsn=0/25540BA0, redo lsn=0/253DC580
