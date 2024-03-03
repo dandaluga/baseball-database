@@ -5,7 +5,7 @@ BEGIN TRANSACTION;
 --               has multiple stints across leagues (Ex: AL -> NL -> AL)
 -- ====================================================================================================
 
-DROP VIEW IF EXISTS year2022.batting_view;
+-- DROP VIEW IF EXISTS year2022.batting_view;
 
 CREATE VIEW year2022.batting_view AS (
   SELECT
@@ -39,7 +39,7 @@ CREATE VIEW year2022.batting_view AS (
 --                Need to calulate era and baoop. You can't just use an average.
 -- ====================================================================================================
 
-DROP VIEW IF EXISTS year2022.pitching_view;
+-- DROP VIEW IF EXISTS year2022.pitching_view;
 
 CREATE VIEW year2022.pitching_view AS (
   SELECT
