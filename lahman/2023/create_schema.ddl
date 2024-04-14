@@ -168,6 +168,7 @@ stint int NOT NULL,
 teamID varchar(3) DEFAULT NULL,
 lgID varchar(2) DEFAULT NULL,
 G int DEFAULT NULL,
+G_batting int DEFAULT NULL,
 AB int DEFAULT NULL,
 R int DEFAULT NULL,
 H int DEFAULT NULL,
@@ -363,7 +364,7 @@ needed int DEFAULT NULL,     /* Update data from ,NA,NA,NA to ,,, */
 votes int DEFAULT NULL,      /* Update data from ,NA,NA,NA to ,,, */
 inducted varchar(1) DEFAULT NULL,
 category varchar(20) DEFAULT NULL,
-needed_note varchar(20) DEFAULT NULL
+needed_note varchar(200) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_hall_of_fame_1  
@@ -446,17 +447,18 @@ ON year2023.managers_half(yearID,teamID,playerID,half);
 
 DROP TABLE IF EXISTS year2023.parks;
 CREATE TABLE IF NOT EXISTS year2023.parks (
-ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-park varchar(50) NOT NULL,
-park_name varchar(100) DEFAULT NULL,
-park_alias varchar(100) DEFAULT NULL,
+PARK_ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ID int NOT NULL,
+parkalias varchar(100) DEFAULT NULL,
+parkkey varchar(50) NOT NULL,
+parkname varchar(100) DEFAULT NULL,
 city varchar(50) DEFAULT NULL,
 state varchar(50) DEFAULT NULL,
 country varchar(50) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_parks_1  
-ON year2023.parks(park); 
+ON year2023.parks(ID); 
 
 -- ====================================================================================================
 -- people
@@ -464,14 +466,15 @@ ON year2023.parks(park);
 
 DROP TABLE IF EXISTS year2023.people;
 CREATE TABLE IF NOT EXISTS year2023.people (
-ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+PEOPLE_ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ID int NOT NULL,
 playerID varchar(10) DEFAULT NULL,
 birthYear int DEFAULT NULL,
 birthMonth int DEFAULT NULL,
 birthDay int DEFAULT NULL,
+birthCity varchar(50) DEFAULT NULL,
 birthCountry varchar(50) DEFAULT NULL,
 birthState varchar(50) DEFAULT NULL,
-birthCity varchar(50) DEFAULT NULL,
 deathYear int DEFAULT NULL,
 deathMonth int DEFAULT NULL,
 deathDay int DEFAULT NULL,
@@ -486,9 +489,9 @@ height double precision DEFAULT NULL,
 bats varchar(1) DEFAULT NULL,
 throws varchar(1) DEFAULT NULL,
 debut varchar(10) DEFAULT NULL,
+bbrefID varchar(9) DEFAULT NULL,
 finalGame varchar(10) DEFAULT NULL,
-retroID varchar(9) DEFAULT NULL,
-bbrefID varchar(9) DEFAULT NULL
+retroID varchar(9) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_people_1  
