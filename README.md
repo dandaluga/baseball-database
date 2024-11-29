@@ -112,8 +112,11 @@ See: https://www.postgresql.org/docs/16/app-initdb.html
 
 My username on my mac is dandaluga. I assume the postgresql installation creates a superuser based on the user that creates the cluster.
 
+You can create multiple clusters on the server. In that case, you will need to update the postgresql.conf to handle the ports to use for
+each cluster along with any other configuration to handle running multiple clusters concurrently.
+
 ```shell
-initdb -D ~/Development/db/baseball -U dandaluga
+initdb -D ~/Development/db/cluster1 -U dandaluga
 ```
 
 #### Start/Stop Cluster
@@ -121,8 +124,8 @@ initdb -D ~/Development/db/baseball -U dandaluga
 ------
 
 ```
-pg_ctl -D /Users/dandaluga/Development/db/baseball -l logfile start
-pg_ctl -D /Users/dandaluga/Development/db/baseball -l logfile stop
+pg_ctl -D /Users/dandaluga/Development/db/cluster1 -l logfile start
+pg_ctl -D /Users/dandaluga/Development/db/cluster1 -l logfile stop
 ```
 
 #### Loading Baseball Reference Database
@@ -130,7 +133,7 @@ pg_ctl -D /Users/dandaluga/Development/db/baseball -l logfile stop
 ------
 
 ```shell
--- This will prompt for a password. I just used password
+-- Create a user. This will prompt for a password. I just used password.
 createuser --no-createdb --no-superuser --no-createrole --pwprompt mlbapi
 
 -- Create the database
