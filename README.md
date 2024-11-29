@@ -82,12 +82,12 @@ C:\PostgreSQL\16\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\gra
 C:\PostgreSQL\16\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\grant_privledges.ddl"
 
 -- Need to use a username that has the privs to run the load scripts
-C:\PostgreSQL\16\bin\psql -U dd00865 -d lahman -f "c:\dev\baseball\database\lahman\2022\load_data_win.sql"
-C:\PostgreSQL\16\bin\psql -U dd00865 -d lahman -f "c:\dev\baseball\database\lahman\2023\load_data_win.sql"
+C:\PostgreSQL\16\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2022\load_data_win.sql"
+C:\PostgreSQL\16\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\load_data_win.sql"
 
 -- Drop the schema if you need to start over
-C:\PostgreSQL\16\bin\psql -U dd00865 -d lahman -f "c:\dev\baseball\database\lahman\2022\drop_schema.ddl"
-C:\PostgreSQL\16\bin\psql -U dd00865 -d lahman -f "c:\dev\baseball\database\lahman\2023\drop_schema.ddl"
+C:\PostgreSQL\16\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2022\drop_schema.ddl"
+C:\PostgreSQL\16\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\drop_schema.ddl"
 
 -- Use this to drop the database and the user to start over. This will delete ALL schemas.
 C:\PostgreSQL\16\bin\dropdb lahman
@@ -152,12 +152,12 @@ psql -d lahman -f ~/Development/baseball-database/lahman/2022/grant_privledges.d
 psql -d lahman -f ~/Development/baseball-database/lahman/2023/grant_privledges.ddl
 
 -- Need to use a username that has the privs to run the load scripts
-psql -U dandaluga -d lahman -f ~/Development/baseball-database/lahman/2022/load_data_mac.sql
-psql -U dandaluga -d lahman -f ~/Development/baseball-database/lahman/2023/load_data_mac.sql
+psql -U mlbapi -d lahman -f ~/Development/baseball-database/lahman/2022/load_data_mac.sql
+psql -U mlbapi -d lahman -f ~/Development/baseball-database/lahman/2023/load_data_mac.sql
 
 -- Drop the schema if you need to start over
-psql -U dandaluga -d lahman -f ~/Development/baseball-database/lahman/2022/drop_schema.ddl
-psql -U dandaluga -d lahman -f ~/Development/baseball-database/lahman/2023/drop_schema.ddl
+psql -U mlbapi -d lahman -f ~/Development/baseball-database/lahman/2022/drop_schema.ddl
+psql -U mlbapi -d lahman -f ~/Development/baseball-database/lahman/2023/drop_schema.ddl
 
 -- Use this to drop the database and the user to start over. This will delete ALL schemas.
 dropdb lahman
