@@ -38,17 +38,17 @@ Read the PostgreSQL installation notes located [here](INSTALL.md).
 ------
 
 ```shell
-C:\PostgreSQL\16\bin\pg_ctl --version
+C:\PostgreSQL\17\bin\pg_ctl --version
 ```
 
 #### Create New Database Cluster
 
 ------
 
-See: https://www.postgresql.org/docs/16/app-initdb.html
+See: https://www.postgresql.org/docs/17/app-initdb.html
 
 ```powershell
-C:\PostgreSQL\16\bin\initdb -D c:\dev\db-data\postgresql\16 -U postgres
+C:\PostgreSQL\17\bin\initdb -D c:\dev\db-data\postgresql\17 -U postgres
 ```
 
 #### Start/Stop Cluster
@@ -56,42 +56,42 @@ C:\PostgreSQL\16\bin\initdb -D c:\dev\db-data\postgresql\16 -U postgres
 ------
 
 ```powershell
-C:\PostgreSQL\16\bin\pg_ctl -D c:\dev\db-data\postgresql\16 -l logfile start
-C:\PostgreSQL\16\bin\pg_ctl -D c:\dev\db-data\postgresql\16 -l logfile stop
+C:\PostgreSQL\17\bin\pg_ctl -D c:\dev\db-data\postgresql\17 -l logfile start
+C:\PostgreSQL\17\bin\pg_ctl -D c:\dev\db-data\postgresql\17 -l logfile stop
 ```
 
 #### Loading Baseball Reference Database
 
 ```shell
 -- This will prompt for a password. I just used password
-C:\PostgreSQL\16\bin\createuser --no-createdb --no-superuser --no-createrole --pwprompt mlbapi
+C:\PostgreSQL\17\bin\createuser --no-createdb --no-superuser --no-createrole --pwprompt mlbapi
 
 -- Create the database
-C:\PostgreSQL\16\bin\createdb lahman
+C:\PostgreSQL\17\bin\createdb lahman
 
 -- Create the table structure for the specific year. This will also create the schema (owner).
-C:\PostgreSQL\16\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\create_schema.ddl"
-C:\PostgreSQL\16\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\create_schema.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\create_schema.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\create_schema.ddl"
 
 -- Create any required views.
-C:\PostgreSQL\16\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\create_views.ddl"
-C:\PostgreSQL\16\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\create_views.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\create_views.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\create_views.ddl"
 
 -- Grant privledges to the mlbapi user
-C:\PostgreSQL\16\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\grant_privledges.ddl"
-C:\PostgreSQL\16\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\grant_privledges.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\grant_privledges.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\grant_privledges.ddl"
 
 -- Need to use a username that has the privs to run the load scripts
-C:\PostgreSQL\16\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2022\load_data_win.sql"
-C:\PostgreSQL\16\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\load_data_win.sql"
+C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2022\load_data_win.sql"
+C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\load_data_win.sql"
 
 -- Drop the schema if you need to start over
-C:\PostgreSQL\16\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2022\drop_schema.ddl"
-C:\PostgreSQL\16\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\drop_schema.ddl"
+C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2022\drop_schema.ddl"
+C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\drop_schema.ddl"
 
 -- Use this to drop the database and the user to start over. This will delete ALL schemas.
-C:\PostgreSQL\16\bin\dropdb lahman
-C:\PostgreSQL\16\bin\dropuser mlbapi
+C:\PostgreSQL\17\bin\dropdb lahman
+C:\PostgreSQL\17\bin\dropuser mlbapi
 ```
 
 ### Loading Baseball Reference Database (Mac/OS)
@@ -108,7 +108,7 @@ pg_ctl --version
 
 ------
 
-See: https://www.postgresql.org/docs/16/app-initdb.html
+See: https://www.postgresql.org/docs/17/app-initdb.html
 
 My username on my mac is dandaluga. I assume the postgresql installation creates a superuser based on the user that creates the cluster.
 
@@ -116,7 +116,37 @@ You can create multiple clusters on the server. In that case, you will need to u
 each cluster along with any other configuration to handle running multiple clusters concurrently.
 
 ```shell
-initdb -D ~/Development/db/cluster1 -U dandaluga
+initdb -D ~/Developer/db/cluster1 -U dandaluga
+```
+
+Here is the output:
+```shell
+The files belonging to this database system will be owned by user "dandaluga".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+creating directory /Users/dandaluga/Developer/db/cluster1 ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default "max_connections" ... 100
+selecting default "shared_buffers" ... 128MB
+selecting default time zone ... America/Chicago
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+initdb: warning: enabling "trust" authentication for local connections
+initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /Users/dandaluga/Developer/db/cluster1 -l logfile start
 ```
 
 #### Start/Stop Cluster
@@ -124,8 +154,8 @@ initdb -D ~/Development/db/cluster1 -U dandaluga
 ------
 
 ```
-pg_ctl -D /Users/dandaluga/Development/db/cluster1 -l logfile start
-pg_ctl -D /Users/dandaluga/Development/db/cluster1 -l logfile stop
+pg_ctl -D /Users/dandaluga/Developer/db/cluster1 -l logfile start
+pg_ctl -D /Users/dandaluga/Developer/db/cluster1 -l logfile stop
 ```
 
 #### Loading Baseball Reference Database
@@ -140,24 +170,24 @@ createuser --no-createdb --no-superuser --no-createrole --pwprompt mlbapi
 createdb lahman
 
 -- Create the table structure for the specific year. This will also create the schema (owner).
-psql -d lahman -f ~/Development/baseball-database/lahman/2022/create_schema.ddl
-psql -d lahman -f ~/Development/baseball-database/lahman/2023/create_schema.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2022/create_schema.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2023/create_schema.ddl
 
 -- Create any required views.
-psql -d lahman -f ~/Development/baseball-database/lahman/2022/create_views.ddl
-psql -d lahman -f ~/Development/baseball-database/lahman/2023/create_views.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2022/create_views.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2023/create_views.ddl
 
 -- Grant privledges to the mlbapi user
-psql -d lahman -f ~/Development/baseball-database/lahman/2022/grant_privledges.ddl
-psql -d lahman -f ~/Development/baseball-database/lahman/2023/grant_privledges.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2022/grant_privledges.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2023/grant_privledges.ddl
 
 -- Need to use a username that has the privs to run the load scripts
-psql -U mlbapi -d lahman -f ~/Development/baseball-database/lahman/2022/load_data_mac.sql
-psql -U mlbapi -d lahman -f ~/Development/baseball-database/lahman/2023/load_data_mac.sql
+psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2022/load_data_mac.sql
+psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2023/load_data_mac.sql
 
 -- Drop the schema if you need to start over
-psql -U mlbapi -d lahman -f ~/Development/baseball-database/lahman/2022/drop_schema.ddl
-psql -U mlbapi -d lahman -f ~/Development/baseball-database/lahman/2023/drop_schema.ddl
+psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2022/drop_schema.ddl
+psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2023/drop_schema.ddl
 
 -- Use this to drop the database and the user to start over. This will delete ALL schemas.
 dropdb lahman
