@@ -4,11 +4,11 @@
 
 This is an example repo that demonstrates the creation and loading of a PostgreSQL database. 
 
-It uses data provided by the Baseball Databank (sometime referred to as the Lahman Database) that is located [here](http://www.seanlahman.com/). Baseball Databank is a compilation of historical baseball data in a convenient, tidy format, distributed under Open Data terms.
+It uses data provided by the Society for American Baseball Research (SABR) that is located [here](https://sabr.org/lahman-database/). The SABR organization creates the database yearly. Each year will include the stats from the previous season.
 
-The data has been downloaded from the site above and extracted into the folders described below. It has been broken down by year so that we can maintained each year when a season completes. So, for example, the 2022 database includes all years including the 2022 season ending stats. Once the next season is completed, a new schema will be generated and it will include all seasons including the newly generated season.
+The data has been downloaded from the site above and extracted into the folders described below. It has been broken down by year so that we can maintained each year when a season completes. So, for example, the 2024 database includes all years including the 2024 season ending stats. Once the next season is completed, a new schema will be generated and it will include all seasons including the newly generated season.
 
-This is just an example of how to load data into a PostgreSQL database. The baseball data contained here is freely open source for use and had no relevance to John Deere. It is provided as an example and learning expereince to get familiar with the PostgreSQL engine and capabilities.
+This is just an example of how to load data into a PostgreSQL database. The baseball data contained here is open source and free to use. It is provided as an example and learning expereince to get familiar with the PostgreSQL engine and capabilities.
 
 
 ## Organization of the files
@@ -19,7 +19,7 @@ Each year is broken down into a separate folder so we can segment season into it
 
 These files are create by getting the zip file in CSV format from [here](https://github.com/chadwickbureau/baseballdatabank/tags). Then unzip the file and it will create these folders:
 
-* `core/` contains the databank itself. 
+* `core/` contains the code data. 
 * `contrib/` contains files which are manually maintained by others using the same identifier system as the core.
 * `upstream/` contains files used to construct the databank.
 
