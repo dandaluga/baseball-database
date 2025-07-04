@@ -5,9 +5,9 @@ BEGIN TRANSACTION;
 --               has multiple stints across leagues (Ex: AL -> NL -> AL)
 -- ====================================================================================================
 
--- DROP VIEW IF EXISTS year2023.batting_view;
+-- DROP VIEW IF EXISTS year2024.batting_view;
 
-CREATE VIEW year2023.batting_view AS (
+CREATE VIEW year2024.batting_view AS (
   SELECT
       yearid,
       playerid,
@@ -29,7 +29,7 @@ CREATE VIEW year2023.batting_view AS (
       sum(sh) as sh,
       sum(sf) as sf,
       sum(gidp) as gidp
-  FROM year2023.batting
+  FROM year2024.batting
   GROUP BY yearid, playerid, lgid
 );
 
@@ -39,9 +39,9 @@ CREATE VIEW year2023.batting_view AS (
 --                Need to calulate era and baoop. You can't just use an average.
 -- ====================================================================================================
 
--- DROP VIEW IF EXISTS year2023.pitching_view;
+-- DROP VIEW IF EXISTS year2024.pitching_view;
 
-CREATE VIEW year2023.pitching_view AS (
+CREATE VIEW year2024.pitching_view AS (
   SELECT
       yearid,
       playerid,
@@ -70,7 +70,7 @@ CREATE VIEW year2023.pitching_view AS (
       sum(sh) as sh,
       sum(sf) as sf,
       sum(gidp) as gidp
-  FROM year2023.pitching
+  FROM year2024.pitching
   GROUP BY yearid, playerid, lgid
 );
 

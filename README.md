@@ -62,7 +62,7 @@ C:\PostgreSQL\17\bin\pg_ctl -D c:\dev\db-data\postgresql\17 -l logfile stop
 
 #### Loading Baseball Reference Database
 
-```shell
+```powershell
 -- This will prompt for a password. I just used password
 C:\PostgreSQL\17\bin\createuser --no-createdb --no-superuser --no-createrole --pwprompt mlbapi
 
@@ -71,23 +71,28 @@ C:\PostgreSQL\17\bin\createdb lahman
 
 -- Create the table structure for the specific year. This will also create the schema (owner).
 C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\create_schema.ddl"
-C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\create_schema.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\scripts\create_schema.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2024\scripts\create_schema.ddl"
 
 -- Create any required views.
 C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\create_views.ddl"
-C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\create_views.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\scripts\create_views.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\scripts\create_views.ddl"
 
 -- Grant privledges to the mlbapi user
 C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2022\grant_privledges.ddl"
-C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\grant_privledges.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2023\scripts\grant_privledges.ddl"
+C:\PostgreSQL\17\bin\psql -d lahman -f "c:\dev\baseball\database\lahman\2024\scripts\grant_privledges.ddl"
 
 -- Need to use a username that has the privs to run the load scripts
 C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2022\load_data_win.sql"
-C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\load_data_win.sql"
+C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\scripts\load_data_win.sql"
+C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2024\scripts\load_data_win.sql"
 
 -- Drop the schema if you need to start over
 C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2022\drop_schema.ddl"
-C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\drop_schema.ddl"
+C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2023\scripts\drop_schema.ddl"
+C:\PostgreSQL\17\bin\psql -U mlbapi -d lahman -f "c:\dev\baseball\database\lahman\2024\scripts\drop_schema.ddl"
 
 -- Use this to drop the database and the user to start over. This will delete ALL schemas.
 C:\PostgreSQL\17\bin\dropdb lahman
@@ -171,23 +176,28 @@ createdb lahman
 
 -- Create the table structure for the specific year. This will also create the schema (owner).
 psql -d lahman -f ~/Developer/baseball-database/lahman/2022/create_schema.ddl
-psql -d lahman -f ~/Developer/baseball-database/lahman/2023/create_schema.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2023/scripts/create_schema.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2024/scripts/create_schema.ddl
 
 -- Create any required views.
 psql -d lahman -f ~/Developer/baseball-database/lahman/2022/create_views.ddl
-psql -d lahman -f ~/Developer/baseball-database/lahman/2023/create_views.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2023/scripts/create_views.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2024/scripts/create_views.ddl
 
 -- Grant privledges to the mlbapi user
 psql -d lahman -f ~/Developer/baseball-database/lahman/2022/grant_privledges.ddl
-psql -d lahman -f ~/Developer/baseball-database/lahman/2023/grant_privledges.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2023/scripts/grant_privledges.ddl
+psql -d lahman -f ~/Developer/baseball-database/lahman/2024/scripts/grant_privledges.ddl
 
 -- Need to use a username that has the privs to run the load scripts
 psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2022/load_data_mac.sql
-psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2023/load_data_mac.sql
+psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2023/scripts/load_data_mac.sql
+psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2024/scripts/load_data_mac.sql
 
 -- Drop the schema if you need to start over
 psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2022/drop_schema.ddl
-psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2023/drop_schema.ddl
+psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2023/scripts/drop_schema.ddl
+psql -U mlbapi -d lahman -f ~/Developer/baseball-database/lahman/2024/scripts/drop_schema.ddl
 
 -- Use this to drop the database and the user to start over. This will delete ALL schemas.
 dropdb lahman

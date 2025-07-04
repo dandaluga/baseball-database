@@ -1,19 +1,19 @@
 BEGIN TRANSACTION; 
 
-CREATE SCHEMA IF NOT EXISTS year2023 AUTHORIZATION mlbapi;
+CREATE SCHEMA IF NOT EXISTS year2024 AUTHORIZATION mlbapi;
 
 -- ====================================================================================================
 -- drop any view since they are tied back to tables
 -- ====================================================================================================
-DROP VIEW IF EXISTS year2023.batting_view;
-DROP VIEW IF EXISTS year2023.pitching_view;
+DROP VIEW IF EXISTS year2024.batting_view;
+DROP VIEW IF EXISTS year2024.pitching_view;
 
 -- ====================================================================================================
 -- allstar_full
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.allstar_full;
-CREATE TABLE IF NOT EXISTS year2023.allstar_full (
+DROP TABLE IF EXISTS year2024.allstar_full;
+CREATE TABLE IF NOT EXISTS year2024.allstar_full (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -27,13 +27,13 @@ startingPos int DEFAULT NULL
 
 -- This unique index fails due to duplicates.
 -- CREATE UNIQUE INDEX ui_allstar_full_1  
--- ON year2023.allstar_full(playerID,yearID,gameNum,gameID,lgID);  
+-- ON year2024.allstar_full(playerID,yearID,gameNum,gameID,lgID);  
 
 -- ====================================================================================================
 -- appearances
 -- ====================================================================================================
-DROP TABLE IF EXISTS year2023.appearances;
-CREATE TABLE IF NOT EXISTS year2023.appearances (
+DROP TABLE IF EXISTS year2024.appearances;
+CREATE TABLE IF NOT EXISTS year2024.appearances (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 yearID int NOT NULL,
 teamID varchar(3) NOT NULL,
@@ -59,14 +59,14 @@ G_pr int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_appearances_1  
-ON year2023.appearances(yearID,teamID,playerID);  
+ON year2024.appearances(yearID,teamID,playerID);  
 
 -- ====================================================================================================
 -- awards_managers
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.awards_managers;
-CREATE TABLE IF NOT EXISTS year2023.awards_managers (
+DROP TABLE IF EXISTS year2024.awards_managers;
+CREATE TABLE IF NOT EXISTS year2024.awards_managers (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 awardID varchar(25) NOT NULL,
@@ -77,14 +77,14 @@ notes varchar(100) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_awards_managers_1  
-ON year2023.awards_managers(yearID,awardID,lgID,playerID); 
+ON year2024.awards_managers(yearID,awardID,lgID,playerID); 
 
 -- ====================================================================================================
 -- awards_players
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.awards_players;
-CREATE TABLE IF NOT EXISTS year2023.awards_players (
+DROP TABLE IF EXISTS year2024.awards_players;
+CREATE TABLE IF NOT EXISTS year2024.awards_players (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 awardID varchar(255) NOT NULL,
@@ -96,14 +96,14 @@ notes varchar(100) DEFAULT NULL
 
 -- Commented out for now due to duplicate rows.
 -- CREATE UNIQUE INDEX ui_awards_players_1  
--- ON year2023.awards_players(yearID,awardID,lgID,playerID); 
+-- ON year2024.awards_players(yearID,awardID,lgID,playerID); 
 
 -- ====================================================================================================
 -- awards_share_managers
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.awards_share_managers;
-CREATE TABLE IF NOT EXISTS year2023.awards_share_managers (
+DROP TABLE IF EXISTS year2024.awards_share_managers;
+CREATE TABLE IF NOT EXISTS year2024.awards_share_managers (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 awardID varchar(255) NOT NULL,
@@ -115,14 +115,14 @@ notes varchar(100) DEFAULT NULL
 
 -- This unique index fails due to duplicates.
 -- CREATE UNIQUE INDEX ui_awards_players_1  
--- ON year2023.awards_share_managers(yearID,awardID,lgID,playerID); 
+-- ON year2024.awards_share_managers(yearID,awardID,lgID,playerID); 
 
 -- ====================================================================================================
 -- awards_share_managers
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.awards_share_managers;
-CREATE TABLE IF NOT EXISTS year2023.awards_share_managers (
+DROP TABLE IF EXISTS year2024.awards_share_managers;
+CREATE TABLE IF NOT EXISTS year2024.awards_share_managers (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 awardID varchar(25) NOT NULL,
 yearID int NOT NULL,
@@ -134,14 +134,14 @@ votesFirst int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_awards_share_managers_1  
-ON year2023.awards_share_managers(awardID,yearID,lgID,playerID); 
+ON year2024.awards_share_managers(awardID,yearID,lgID,playerID); 
 
 -- ====================================================================================================
 -- awards_share_players
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.awards_share_players;
-CREATE TABLE IF NOT EXISTS year2023.awards_share_players (
+DROP TABLE IF EXISTS year2024.awards_share_players;
+CREATE TABLE IF NOT EXISTS year2024.awards_share_players (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 awardID varchar(25) NOT NULL,
 yearID int NOT NULL,
@@ -153,14 +153,14 @@ votesFirst double precision DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_awards_share_players_1  
-ON year2023.awards_share_players(awardID,yearID,lgID,playerID); 
+ON year2024.awards_share_players(awardID,yearID,lgID,playerID); 
 
 -- ====================================================================================================
 -- batting
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.batting;
-CREATE TABLE IF NOT EXISTS year2023.batting (
+DROP TABLE IF EXISTS year2024.batting;
+CREATE TABLE IF NOT EXISTS year2024.batting (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -188,14 +188,14 @@ GIDP int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_batting_1  
-ON year2023.batting(playerID,yearID,stint); 
+ON year2024.batting(playerID,yearID,stint); 
 
 -- ====================================================================================================
 -- batting_post
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.batting_post;
-CREATE TABLE IF NOT EXISTS year2023.batting_post (
+DROP TABLE IF EXISTS year2024.batting_post;
+CREATE TABLE IF NOT EXISTS year2024.batting_post (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 yearID int NOT NULL,
 round varchar(10) NOT NULL,
@@ -222,14 +222,14 @@ GIDP int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_batting_post_1  
-ON year2023.batting_post(yearID,round,playerID); 
+ON year2024.batting_post(yearID,round,playerID); 
 
 -- ====================================================================================================
 -- college_playing
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.college_playing;
-CREATE TABLE IF NOT EXISTS year2023.college_playing (
+DROP TABLE IF EXISTS year2024.college_playing;
+CREATE TABLE IF NOT EXISTS year2024.college_playing (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 schoolID varchar(15) NOT NULL,
@@ -237,14 +237,14 @@ yearID int NOT NULL
 );
 
 CREATE UNIQUE INDEX ui_college_playing_1  
-ON year2023.college_playing(playerID, schoolID, yearID); 
+ON year2024.college_playing(playerID, schoolID, yearID); 
 
 -- ====================================================================================================
 -- fielding
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.fielding;
-CREATE TABLE IF NOT EXISTS year2023.fielding (
+DROP TABLE IF EXISTS year2024.fielding;
+CREATE TABLE IF NOT EXISTS year2024.fielding (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -267,14 +267,14 @@ ZR double precision DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_fielding_1  
-ON year2023.fielding(playerID,yearID,stint,POS); 
+ON year2024.fielding(playerID,yearID,stint,POS); 
 
 -- ====================================================================================================
 -- fielding_of
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.fielding_of;
-CREATE TABLE IF NOT EXISTS year2023.fielding_of (
+DROP TABLE IF EXISTS year2024.fielding_of;
+CREATE TABLE IF NOT EXISTS year2024.fielding_of (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -285,14 +285,14 @@ Grf int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_fielding_of_1  
-ON year2023.fielding_of(playerID,yearID,stint); 
+ON year2024.fielding_of(playerID,yearID,stint); 
 
 -- ====================================================================================================
 -- fielding_of_split
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.fielding_of_split;
-CREATE TABLE IF NOT EXISTS year2023.fielding_of_split (
+DROP TABLE IF EXISTS year2024.fielding_of_split;
+CREATE TABLE IF NOT EXISTS year2024.fielding_of_split (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -315,14 +315,14 @@ ZR double precision DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_fielding_of_split_1  
-ON year2023.fielding_of_split(playerID,yearID,stint,POS); 
+ON year2024.fielding_of_split(playerID,yearID,stint,POS); 
 
 -- ====================================================================================================
 -- fielding_post
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.fielding_post;
-CREATE TABLE IF NOT EXISTS year2023.fielding_post (
+DROP TABLE IF EXISTS year2024.fielding_post;
+CREATE TABLE IF NOT EXISTS year2024.fielding_post (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -344,7 +344,7 @@ CS int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_fielding_post_1  
-ON year2023.fielding_post(playerID,yearID,round,POS); 
+ON year2024.fielding_post(playerID,yearID,round,POS); 
 
 -- ====================================================================================================
 -- hall_of_fame
@@ -353,8 +353,8 @@ ON year2023.fielding_post(playerID,yearID,round,POS);
 -- Looks like those voted thru the veterans committe have NA rather than empty (which will default to NULL).
 -- As a result, I changed the data rather than change the data type.
 
-DROP TABLE IF EXISTS year2023.hall_of_fame;
-CREATE TABLE IF NOT EXISTS year2023.hall_of_fame (
+DROP TABLE IF EXISTS year2024.hall_of_fame;
+CREATE TABLE IF NOT EXISTS year2024.hall_of_fame (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearid int NOT NULL,
@@ -368,7 +368,7 @@ needed_note varchar(200) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_hall_of_fame_1  
-ON year2023.hall_of_fame(playerID,yearid,votedBy); 
+ON year2024.hall_of_fame(playerID,yearid,votedBy); 
 
 -- ====================================================================================================
 -- home_games
@@ -377,8 +377,8 @@ ON year2023.hall_of_fame(playerID,yearid,votedBy);
 -- The columns defined in the csv file have periods for some of the columns. Hence, changed the header
 -- row to: year,league,team,park,span_first,span_last,games,openings,attendance
 
-DROP TABLE IF EXISTS year2023.home_games;
-CREATE TABLE IF NOT EXISTS year2023.home_games (
+DROP TABLE IF EXISTS year2024.home_games;
+CREATE TABLE IF NOT EXISTS year2024.home_games (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 year int NOT NULL,
 league varchar(64) NULL DEFAULT '',
@@ -392,14 +392,14 @@ attendance int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_home_games_1  
-ON year2023.home_games(year,league,team,park); 
+ON year2024.home_games(year,league,team,park); 
 
 -- ====================================================================================================
 -- managers
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.managers;
-CREATE TABLE IF NOT EXISTS year2023.managers (
+DROP TABLE IF EXISTS year2024.managers;
+CREATE TABLE IF NOT EXISTS year2024.managers (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) DEFAULT NULL,
 yearID int NOT NULL,
@@ -414,14 +414,14 @@ plyrMgr varchar(1) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_managers_1  
-ON year2023.managers(yearID,teamID,inseason); 
+ON year2024.managers(yearID,teamID,inseason); 
 
 -- ====================================================================================================
 -- managers_half
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.managers_half;
-CREATE TABLE IF NOT EXISTS year2023.managers_half (
+DROP TABLE IF EXISTS year2024.managers_half;
+CREATE TABLE IF NOT EXISTS year2024.managers_half (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -436,17 +436,17 @@ rank int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_managers_half_1  
-ON year2023.managers_half(yearID,teamID,playerID,half); 
+ON year2024.managers_half(yearID,teamID,playerID,half); 
 
 -- ====================================================================================================
 -- parks
 -- ====================================================================================================
 
--- The columns defined year2023.in the csv file have periods for some of the columns. Hence, changed the header
+-- The columns defined year2024.in the csv file have periods for some of the columns. Hence, changed the header
 -- row to: park,park_name,park_alias,city,state,country
 
-DROP TABLE IF EXISTS year2023.parks;
-CREATE TABLE IF NOT EXISTS year2023.parks (
+DROP TABLE IF EXISTS year2024.parks;
+CREATE TABLE IF NOT EXISTS year2024.parks (
 PARK_ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 ID int NOT NULL,
 parkalias varchar(100) DEFAULT NULL,
@@ -458,14 +458,14 @@ country varchar(50) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_parks_1  
-ON year2023.parks(ID); 
+ON year2024.parks(ID); 
 
 -- ====================================================================================================
 -- people
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.people;
-CREATE TABLE IF NOT EXISTS year2023.people (
+DROP TABLE IF EXISTS year2024.people;
+CREATE TABLE IF NOT EXISTS year2024.people (
 PEOPLE_ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 ID int NOT NULL,
 playerID varchar(10) DEFAULT NULL,
@@ -495,14 +495,14 @@ retroID varchar(9) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_people_1  
-ON year2023.people(playerID); 
+ON year2024.people(playerID); 
 
 -- ====================================================================================================
 -- pitching
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.pitching;
-CREATE TABLE IF NOT EXISTS year2023.pitching (
+DROP TABLE IF EXISTS year2024.pitching;
+CREATE TABLE IF NOT EXISTS year2024.pitching (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -537,14 +537,14 @@ GIDP int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_pitching_1  
-ON year2023.pitching(playerID,yearID,stint); 
+ON year2024.pitching(playerID,yearID,stint); 
 
 -- ====================================================================================================
 -- pitching_post
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.pitching_post;
-CREATE TABLE IF NOT EXISTS year2023.pitching_post (
+DROP TABLE IF EXISTS year2024.pitching_post;
+CREATE TABLE IF NOT EXISTS year2024.pitching_post (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 playerID varchar(10) NOT NULL,
 yearID int NOT NULL,
@@ -579,14 +579,14 @@ GIDP int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_pitching_post_1  
-ON year2023.pitching_post(playerID,yearID,round); 
+ON year2024.pitching_post(playerID,yearID,round); 
 
 -- ====================================================================================================
 -- salaries
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.salaries;
-CREATE TABLE IF NOT EXISTS year2023.salaries (
+DROP TABLE IF EXISTS year2024.salaries;
+CREATE TABLE IF NOT EXISTS year2024.salaries (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 yearID int NOT NULL,
 teamID varchar(3) NOT NULL,
@@ -596,14 +596,14 @@ salary double precision DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_salaries_1  
-ON year2023.salaries(yearID,teamID,lgID,playerID); 
+ON year2024.salaries(yearID,teamID,lgID,playerID); 
 
 -- ====================================================================================================
 -- schools
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.schools;
-CREATE TABLE IF NOT EXISTS year2023.schools (
+DROP TABLE IF EXISTS year2024.schools;
+CREATE TABLE IF NOT EXISTS year2024.schools (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 schoolID varchar(15) NOT NULL,
 name_full varchar(255) DEFAULT NULL,
@@ -613,14 +613,14 @@ country varchar(55) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_schools_1  
-ON year2023.schools(schoolID); 
+ON year2024.schools(schoolID); 
 
 -- ====================================================================================================
 -- series_post
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.series_post;
-CREATE TABLE IF NOT EXISTS year2023.series_post (
+DROP TABLE IF EXISTS year2024.series_post;
+CREATE TABLE IF NOT EXISTS year2024.series_post (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 yearID int NOT NULL,
 round varchar(5) NOT NULL,
@@ -634,14 +634,14 @@ ties int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_series_post_1  
-ON year2023.series_post(yearID,round); 
+ON year2024.series_post(yearID,round); 
 
 -- ====================================================================================================
 -- teams
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.teams;
-CREATE TABLE IF NOT EXISTS year2023.teams (
+DROP TABLE IF EXISTS year2024.teams;
+CREATE TABLE IF NOT EXISTS year2024.teams (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 yearID int NOT NULL,
 lgID varchar(2) NOT NULL,
@@ -694,14 +694,14 @@ teamIDretro varchar(3) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_teams_1  
-ON year2023.teams(yearID,lgID,teamID); 
+ON year2024.teams(yearID,lgID,teamID); 
 
 -- ====================================================================================================
 -- teams_franchises
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.teams_franchises;
-CREATE TABLE IF NOT EXISTS year2023.teams_franchises (
+DROP TABLE IF EXISTS year2024.teams_franchises;
+CREATE TABLE IF NOT EXISTS year2024.teams_franchises (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 franchID varchar(3) NOT NULL,
 franchName varchar(50) DEFAULT NULL,
@@ -710,14 +710,14 @@ NAassoc varchar(3) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_teams_franchises_1  
-ON year2023.teams_franchises(franchID); 
+ON year2024.teams_franchises(franchID); 
 
 -- ====================================================================================================
 -- teams_half
 -- ====================================================================================================
 
-DROP TABLE IF EXISTS year2023.teams_half;
-CREATE TABLE IF NOT EXISTS year2023.teams_half (
+DROP TABLE IF EXISTS year2024.teams_half;
+CREATE TABLE IF NOT EXISTS year2024.teams_half (
 ID uuid PRIMARY KEY DEFAULT gen_random_uuid(),
 yearID int NOT NULL,
 lgID varchar(2) NOT NULL,
@@ -732,6 +732,6 @@ L int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_teams_half_1  
-ON year2023.teams_half(yearID,teamID,lgID,Half); 
+ON year2024.teams_half(yearID,teamID,lgID,Half); 
 
 END TRANSACTION;
