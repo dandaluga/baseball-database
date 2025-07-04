@@ -96,7 +96,7 @@ brdgwatrva,Bridgewater College,Bridgewater,VA,USA
 brewparker,Brewton-Parker College,Mount Vernon,GA,USA
 bridgeport,University of Bridgeport,Bridgeport,CT,USA
 bridgwtrst,Bridgewater State College,Bridgewater,MA,USA
-brklyncuny,Brooklyn College, The City University of New York,Brooklyn,NY,USA
+brklyncuny,"Brooklyn College, The City University of New York",Brooklyn,NY,USA
 brown,Brown University,Providence,RI,USA
 bryant,Bryant College,Smithfield,RI,USA
 bucknell,Bucknell University,Lewisburg,PA,USA
@@ -143,12 +143,12 @@ calamjc,Los Angeles Mission College,Sylmar,CA,USA
 calaney,Laney College,Oakland,CA,USA
 calasse,Lassen College,Susanville,CA,USA
 calavco,Los Angeles Valley College,Los Angeles,CA,USA
-california,University of California, Berkeley,Berkeley,CA,USA
+california,"University of California, Berkeley",Berkeley,CA,USA
 calipa,California University of Pennsylvania,California,PA,USA
 calobcc,Long Beach City College,Long Beach,CA,USA
-calpoly,California Polytechnic State University, San Luis Obispo,San Luis Obispo,CA,USA
-calpolypom,California Polytechnic State University, Pomona,Pomona,CA,USA
-calstfull,California State University Fullerton,Fullerton,CA,USA
+calpoly,"California Polytechnic State University, San Luis Obispo",San Luis Obispo,CA,USA
+calpolypom,"California Polytechnic State University, Pomona",Pomona,CA,USA
+calstfull,"California State University Fullerton",Fullerton,CA,USA
 calstla,California State University Los Angeles,Los Angeles,CA,USA
 calstnorth,California State University Northridge,Los Angeles,CA,USA
 calutheran,California Lutheran University,Thousand Oaks,CA,USA
@@ -261,7 +261,7 @@ ctmitch,Mitchell College,New London,CT,USA
 ctnorwa,Norwalk Community College,Norwalk,CT,USA
 cumbrlndtn,Cumberland University,Lebanon,TN,USA
 cwashngton,Central Washington University,Ellensburg,WA,USA
-cwpost,Long Island University, C W Post Campus,Brookville,NY,USA
+cwpost,"Long Island University, C W Post Campus",Brookville,NY,USA
 dallasbapt,Dallas Baptist University,Dallas,TX,USA
 dartmouth,Dartmouth College,Hanover,NH,USA
 davidson,Davidson College,Davidson,NC,USA
@@ -305,7 +305,7 @@ eurekail,Eureka College,Eureka,IL,USA
 eutah,College of Eastern Utah,Price,UT,USA
 evansville,University of Evansville,Evansville,IN,USA
 fairfield,Fairfield University,Fairfield,CT,USA
-fairldick,Fairleigh Dickinson University, Metropolitan Campus,Teaneck,NJ,USA
+fairldick,"Fairleigh Dickinson University, Metropolitan Campus",Teaneck,NJ,USA
 fayetvilst,Fayetteville State University,Fayetteville,NC,USA
 ferrisst,Ferris State University,Big Rapids,MI,USA
 ferrumva,Ferrum College,Ferrum,VA,USA
@@ -326,10 +326,10 @@ flhills,Hillsborough Community College,Tampa,FL,USA
 flindia,Indian River Community College,Fort Pierce,FL,USA
 flinternat,Florida International University,Miami,FL,USA
 fllynnu,Lynn University,Boca Raton,FL,USA
-flmanat,State College of Florida, Manatee-Sarasota,Bradenton,FL,USA
-flmdkjc,Miami-Dade College, Kendall Campus,Miami,FL,USA
-flmdnjc,Miami-Dade College, North Campus,Miami,FL,USA
-flmdwjc,Miami-Dade College, Wolfson Campus,Miami,FL,USA
+flmanat,"State College of Florida, Manatee-Sarasota",Bradenton,FL,USA
+flmdkjc,"Miami-Dade College, Kendall Campus",Miami,FL,USA
+flmdnjc,"Miami-Dade College, North Campus",Miami,FL,USA
+flmdwjc,"Miami-Dade College, Wolfson Campus",Miami,FL,USA
 flnfcco,North Florida Community College,Madison,FL,USA
 flnovas,Nova Southeastern University,Fort Lauderdale,FL,USA
 flnwfsc,Northwest Florida State College,Niceville,FL,USA
@@ -415,7 +415,7 @@ houston,University of Houston,Houston,TX,USA
 howard,Howard University,Washington,DC,USA
 howrdpayne,Howard Payne University,Brownwood,TX,USA
 humboldtst,Humboldt State University,Arcata,CA,USA
-huntercuny,Hunter College, The City University of New York,New York,NY,USA
+huntercuny,"Hunter College, The City University of New York",New York,NY,USA
 iadesmo,Des Moines University,Des Moines,IA,USA
 iadmacc,Des Moines Area Community College,Boone,IA,USA
 iaellsw,Ellsworth College,Iowa Falls,IA,USA
@@ -423,7 +423,7 @@ iahighl,Highland Park College,Des Moines,IA,USA
 iaindia,Indian Hills Community College,Centerville,IA,USA
 iakirkw,Kirkwood Community College,Cedar Rapids,IA,USA
 iaparso,Parsons College,Fairfield,IA,USA
-iaseccs,Southeastern Iowa Community College, Keokuk Campus,Keokuk,IA,USA
+iaseccs,"Southeastern Iowa Community College, Keokuk Campus",Keokuk,IA,USA
 iasimps,Simpson College,Indianola,IA,USA
 iawescc,Iowa Western Community College,Council Bluffs,IA,USA
 iawesleyan,Iowa Wesleyan College,Mount Pleasant,IA,USA
@@ -549,7 +549,7 @@ linfieldor,Linfield College,McMinnville,OR,USA
 lipscomb,Lipscomb University,Nashville,TN,USA
 lockhaven,Lock Haven University of Pennsylvania,Lock Haven,PA,USA
 longbeach,California State University Long Beach,Long Beach,CA,USA
-longisland,Long Island University, Brooklyn Campus,Brooklyn,NY,USA
+longisland,"Long Island University, Brooklyn Campus",Brooklyn,NY,USA
 longwoodva,Longwood University,Farmville,VA,USA
 lorasia,Loras College,Dubuque,IA,USA
 louisville,University of Louisville,Louisville,KY,USA
@@ -575,7 +575,7 @@ mamiddl,Middlesex Community College,Bedford,MA,USA
 manchester,Manchester College,North Manchester,IN,USA
 manecco,Northern Essex Community College,Haverhill,MA,USA
 manhattan,Manhattan College,New York,NY,USA
-mankatost,Minnesota State University, Mankato,Mankato,MN,USA
+mankatost,"Minnesota State University, Mankato",Mankato,MN,USA
 manscco,North Shore Community College,Danvers,MA,USA
 mansfield,Mansfield University of Pennsylvania,Mansfield,PA,USA
 maquins,Quinsigamond Community College,Worcester,MA,USA
@@ -592,19 +592,19 @@ mcneese,McNeese State University,Lake Charles,LA,USA
 mdaacco,Anne Arundel Community College,Arnold,MD,USA
 mdbalcc,Baltimore City Community College,Baltimore,MD,USA
 mdbalti,University of Baltimore,Baltimore,MD,USA
-mdccbcc,Community College of Baltimore County, Catonsville Campus,Catonsville,MD,USA
-mdccbce,Community College of Baltimore County, Essex Campus,Essex,MD,USA
+mdccbcc,"Community College of Baltimore County, Catonsville Campus",Catonsville,MD,USA
+mdccbce,"Community College of Baltimore County, Essex Campus",Essex,MD,USA
 mdcecil,Cecil Community College,North East,MD,USA
 mdcolsm,College of Southern Maryland,La Plata,MD,USA
 mdfrost,Frostburg State University,Frostburg,MD,USA
 mdgarre,Garrett Community College,McHenry,MD,USA
 mdhager,Hagerstown Community College,Hagerstown,MD,USA
 mdmdbal,University of Maryland Baltimore,Baltimore,MD,USA
-mdmontg,Montgomery College, Rockville Campus,Rockville,MD,USA
+mdmontg,"Montgomery College, Rockville Campus",Rockville,MD,USA
 mdrockh,Rock Hill College,Ellicott City,MD,USA
 mdstjoh,St. John's College,Annapolis,MD,USA
 memphis,University of Memphis,Memphis,TN,USA
-meramec,St. Louis Community College, Meramec Campus,Kirkwood,MO,USA
+meramec,"St. Louis Community College, Meramec Campus",Kirkwood,MO,USA
 mercer,Mercer University,Macon,GA,USA
 mercyhurst,Mercyhurst College,Erie,PA,USA
 mericke,Ricker College,Houlton,ME,USA
@@ -640,8 +640,8 @@ mistcla,St. Clair County Community College,Port Huron,MI,USA
 mit,Massachusetts Institute of Technology,Cambridge,MA,USA
 mnbemid,Bemidji State University,Bemidji,MN,USA
 mnmesabi,Mesabi Range Community and Technical College,Virginia,MN,USA
-mnmoorh,Minnesota State University, Moorhead,Moorhead,MN,USA
-mnmorris,University of Minnesota, Morris,Morris,MN,USA
+mnmoorh,"Minnesota State University, Moorhead",Moorhead,MN,USA
+mnmorris,"University of Minnesota, Morris",Morris,MN,USA
 mnnorma,Normandale Community College,Bloomington,MN,USA
 mnparke,Parker College,Winnebago,MN,USA
 mntclairst,Montclair State University,Montclair,NJ,USA
@@ -651,7 +651,7 @@ mocrowd,Crowder College,Neosho,MO,USA
 moculve,Culver-Stockton College,Canton,MO,USA
 modrury,Drury University,Springfield,MO,USA
 moeastc,East Central College,Union,MO,USA
-mofores,St. Louis Community College, Forest Park Campus,St. Louis,MO,USA
+mofores,"St. Louis Community College, Forest Park Campus",St. Louis,MO,USA
 moharri,Harris-Stowe State College,St. Louis,MO,USA
 mojcjco,Jefferson City Junior College,Jefferson City,MO,USA
 mojeffe,Jefferson College,Hillsboro,MO,USA
@@ -832,8 +832,8 @@ otterbein,Otterbein College,Westerville,OH,USA
 ouachitab,Ouachita Baptist University,Arkadelphia,AR,USA
 oxnard,Oxnard College,Oxnard,CA,USA
 ozarks,University of the Ozarks,Clarksville,AR,USA
-paalleb,Community College of Allegheny County, Boyce Campus,Monroeville,PA,USA
-paalles,Community College of Allegheny County, South Campus,West Mifflin,PA,USA
+paalleb,"Community College of Allegheny County, Boyce Campus",Monroeville,PA,USA
+paalles,"Community College of Allegheny County, South Campus",West Mifflin,PA,USA
 pabeave,Community College of Beaver County,Monaca,PA,USA
 pabucks,Bucks County Community College,Lewisburg,PA,USA
 pabutle,Butler County Community College,Butler,PA,USA
@@ -867,7 +867,7 @@ prairview,Prairie View A&M University,Prairie View,TX,USA
 presbytrn,Presbyterian College,Clinton,SC,USA
 princeton,Princeton University,Princeton,NJ,USA
 providence,Providence College,Providence,RI,USA
-psubehrend,Penn State Erie, the Behrend College of Pennsylvania State University,Erie,PA,USA
+psubehrend,"Penn State Erie, the Behrend College of Pennsylvania State University",Erie,PA,USA
 ptlomanaz,Point Loma Nazarene University,San Diego,CA,USA
 ptparkpa,Point Park University,Pittsburgh,PA,USA
 pugetsound,University of Puget Sound,Tacoma,WA,USA
@@ -892,7 +892,7 @@ rockhurst,Rockhurst University,Kansas City,MO,USA
 rollins,Rollins College,Winter Park,FL,USA
 rosehulman,Rose-Hulman Institute of Technology,Terre Haute,IN,USA
 rowannj,Rowan University,Glassboro,NJ,USA
-rutgers,Rutgers, the State University of New Jersey,New Brunswick,NJ,USA
+rutgers,"Rutgers, the State University of New Jersey",New Brunswick,NJ,USA
 sacstate,California State University Sacramento,Sacramento,CA,USA
 saginawval,Saginaw Valley State University,Saginaw,MI,USA
 salabama,University of South Alabama,Mobile,AL,USA
@@ -975,7 +975,7 @@ stthomasmn,University of St. Thomas,St. Paul,MN,USA
 stxavieril,St. Xavier University,Orland Park,IL,USA
 sulrossst,Sul Ross State University,Alpine,TX,USA
 sunybing,State University of New York at Binghamton,Binghamton,NY,USA
-sunybuff,University at Buffalo, State University of New York,Buffalo,NY,USA
+sunybuff,"University at Buffalo, State University of New York",Buffalo,NY,USA
 susquehnna,Susquehanna University,Selinsgrove,PA,USA
 sutah,Southern Utah University,Cedar City,UT,USA
 swarthmore,Swarthmore College,Swarthmore,PA,USA
@@ -1053,7 +1053,7 @@ txpanol,Panola College,Carthage,TX,USA
 txparis,Paris Junior College,Paris,TX,USA
 txpaulq,Paul Quinn College,Dallas,TX,USA
 txsajco,San Antonio College,San Antonio,TX,USA
-txsjjcn,San Jacinto College, North Campus,Houston,TX,USA
+txsjjcn,"San Jacinto College, North Campus",Houston,TX,USA
 txsjjco,San Jacinto College,Pasadena,TX,USA
 txswtex,Southwest Texas Junior College,Uvalde,TX,USA
 txtech,Texas Tech University,Lubbock,TX,USA
@@ -1067,18 +1067,18 @@ txwesleyan,Texas Wesleyan University,Fort Worth,TX,USA
 txwestt,West Texas A&M University,Canyon,TX,USA
 txwhart,Wharton County Junior College,Wharton,TX,USA
 uab,University of Alabama at Birmingham,Birmingham,AL,USA
-ucdavis,University of California, Davis,Davis,CA,USA
-ucirvine,University of California, Irvine,Irvine,CA,USA
-ucla,University of California, Los Angeles,Los Angeles,CA,USA
+ucdavis,"University of California, Davis",Davis,CA,USA
+ucirvine,"University of California, Irvine",Irvine,CA,USA
+ucla,"University of California, Los Angeles",Los Angeles,CA,USA
 uconn,University of Connecticut,Storrs,CT,USA
-ucriver,University of California, Riverside,Riverside,CA,USA
-ucsb,University of California, Santa Barbara,Santa Barbara,CA,USA
-ucsd,University of California, San Diego,La Jolla,CA,USA
+ucriver,"University of California, Riverside",Riverside,CA,USA
+ucsb,"University of California, Santa Barbara",Santa Barbara,CA,USA
+ucsd,"University of California, San Diego",La Jolla,CA,USA
 ulala,University of Louisiana at Lafayette,Lafayette,LA,USA
 ulamo,University of Louisiana at Monroe,Monroe,LA,USA
 umass,University of Massachusetts Amherst,Amherst,MA,USA
 umassdartm,University of Massachusetts Dartmouth,North Dartmouth,MA,USA
-umbc,University of Maryland, Baltimore County,Baltimore,MD,USA
+umbc,"University of Maryland, Baltimore County",Baltimore,MD,USA
 umes,University of Maryland Eastern Shore,Princess Anne,MD,USA
 umkc,University of Missouri Kansas City,Kansas City,MO,USA
 unc,University of North Carolina at Chapel Hill,Chapel Hill,NC,USA

@@ -12,7 +12,7 @@ BEGIN TRANSACTION;
 
 \COPY year2024.awards_share_players(awardID,yearID,lgID,playerID,pointsWon,pointsMax,votesFirst) FROM '~/Developer/baseball-database/lahman/2024/data/AwardsSharePlayers.csv' WITH CSV HEADER DELIMITER AS ',';
 
-\COPY year2024.batting(playerID,yearID,stint,teamID,lgID,G,G_batting,AB,R,H,H2B,H3B,HR,RBI,SB,CS,BB,SO,IBB,HBP,SH,SF,GIDP) FROM '~/Developer/baseball-database/lahman/2024/data/Batting.csv' WITH CSV HEADER DELIMITER AS ',';
+\COPY year2024.batting(playerID,yearID,stint,teamID,lgID,G,G_batting,AB,R,H,H2B,H3B,HR,RBI,SB,CS,BB,SO,IBB,HBP,SH,SF,GIDP,G_old) FROM '~/Developer/baseball-database/lahman/2024/data/Batting.csv' WITH CSV HEADER DELIMITER AS ',';
 
 \COPY year2024.batting_post(yearID,round,playerID,teamID,lgID,G,AB,R,H,H2B,H3B,HR,RBI,SB,CS,BB,SO,IBB,HBP,SH,SF,GIDP) FROM '~/Developer/baseball-database/lahman/2024/data/BattingPost.csv' WITH CSV HEADER DELIMITER AS ',';
 
