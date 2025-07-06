@@ -9,9 +9,9 @@ BEGIN TRANSACTION;
 
 CREATE VIEW year2024.batting_view AS (
   SELECT
-      yearid,
-      playerid,
-      lgid,
+      year_id,
+      player_id,
+      lg_id,
       sum(g) as g,
       sum(ab) as ab,
       sum(r) as r,
@@ -30,7 +30,7 @@ CREATE VIEW year2024.batting_view AS (
       sum(sf) as sf,
       sum(gidp) as gidp
   FROM year2024.batting
-  GROUP BY yearid, playerid, lgid
+  GROUP BY year_id, player_id, lg_id
 );
 
 -- ====================================================================================================
@@ -43,9 +43,9 @@ CREATE VIEW year2024.batting_view AS (
 
 CREATE VIEW year2024.pitching_view AS (
   SELECT
-      yearid,
-      playerid,
-      lgid,
+      year_id,
+      player_id,
+      lg_id,
       sum(w) as w,
       sum(l) as l,
       sum(g) as g,
@@ -71,7 +71,7 @@ CREATE VIEW year2024.pitching_view AS (
       sum(sf) as sf,
       sum(gidp) as gidp
   FROM year2024.pitching
-  GROUP BY yearid, playerid, lgid
+  GROUP BY year_id, player_id, lg_id
 );
 
 END TRANSACTION;
