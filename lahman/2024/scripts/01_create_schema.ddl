@@ -17,17 +17,17 @@ CREATE TABLE IF NOT EXISTS year2024.allstar_full (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     player_id varchar(10) NOT NULL,
     year_id int NOT NULL,
-    gameNum int NOT NULL,
+    game_num int NOT NULL,
     game_id varchar(12) DEFAULT NULL,
     team_id varchar(3) DEFAULT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    GP int DEFAULT NULL,
-    startingPos int DEFAULT NULL
+    played_in_game int DEFAULT NULL,
+    starting_pos int DEFAULT NULL
 );
 
 -- This unique index fails due to duplicates.
 -- CREATE UNIQUE INDEX ui_allstar_full_1  
--- ON year2024.allstar_full(player_id,year_id,gameNum,game_id,lg_id);  
+--  ON year2024.allstar_full(player_id,year_id,gameNum,game_id,lg_id);  
 
 -- ====================================================================================================
 -- appearances
@@ -39,27 +39,27 @@ CREATE TABLE IF NOT EXISTS year2024.appearances (
     team_id varchar(3) NOT NULL,
     lg_id varchar(2) DEFAULT NULL,
     player_id varchar(10) NOT NULL,
-    G_all int DEFAULT NULL,
-    GS int DEFAULT NULL,
-    G_batting int DEFAULT NULL,
-    G_defense int DEFAULT NULL,
-    G_p int DEFAULT NULL,
-    G_c int DEFAULT NULL,
-    G_1b int DEFAULT NULL,
-    G_2b int DEFAULT NULL,
-    G_3b int DEFAULT NULL,
-    G_ss int DEFAULT NULL,
-    G_lf int DEFAULT NULL,
-    G_cf int DEFAULT NULL,
-    G_rf int DEFAULT NULL,
-    G_of int DEFAULT NULL,
-    G_dh int DEFAULT NULL,
-    G_ph int DEFAULT NULL,
-    G_pr int DEFAULT NULL
+    games_all int DEFAULT NULL,
+    games_started int DEFAULT NULL,
+    games_batting int DEFAULT NULL,
+    games_defense int DEFAULT NULL,
+    games_p int DEFAULT NULL,
+    games_c int DEFAULT NULL,
+    games_1b int DEFAULT NULL,
+    games_2b int DEFAULT NULL,
+    games_3b int DEFAULT NULL,
+    games_ss int DEFAULT NULL,
+    games_lf int DEFAULT NULL,
+    games_cf int DEFAULT NULL,
+    games_rf int DEFAULT NULL,
+    games_of int DEFAULT NULL,
+    games_dh int DEFAULT NULL,
+    games_ph int DEFAULT NULL,
+    games_pr int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_appearances_1  
-ON year2024.appearances(year_id,team_id,player_id);  
+    ON year2024.appearances(year_id,team_id,player_id);  
 
 -- ====================================================================================================
 -- awards_managers
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS year2024.awards_managers (
 );
 
 CREATE UNIQUE INDEX ui_awards_managers_1  
-ON year2024.awards_managers(year_id,award_id,lg_id,player_id); 
+    ON year2024.awards_managers(year_id,award_id,lg_id,player_id); 
 
 -- ====================================================================================================
 -- awards_players
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS year2024.awards_players (
 
 -- Commented out for now due to duplicate rows.
 -- CREATE UNIQUE INDEX ui_awards_players_1  
--- ON year2024.awards_players(year_id,award_id,lg_id,player_id); 
+--  ON year2024.awards_players(year_id,award_id,lg_id,player_id); 
 
 -- ====================================================================================================
 -- awards_share_managers
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS year2024.awards_share_managers (
 
 -- This unique index fails due to duplicates.
 -- CREATE UNIQUE INDEX ui_awards_players_1  
--- ON year2024.awards_share_managers(year_id,award_id,lg_id,player_id); 
+--  ON year2024.awards_share_managers(year_id,award_id,lg_id,player_id); 
 
 -- ====================================================================================================
 -- awards_share_managers
@@ -128,13 +128,13 @@ CREATE TABLE IF NOT EXISTS year2024.awards_share_managers (
     year_id int NOT NULL,
     lg_id varchar(2) NOT NULL,
     player_id varchar(10) NOT NULL,
-    pointsWon int DEFAULT NULL,
-    pointsMax int DEFAULT NULL,
-    votesFirst int DEFAULT NULL
+    points_won int DEFAULT NULL,
+    points_max int DEFAULT NULL,
+    votes_first int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_awards_share_managers_1  
-ON year2024.awards_share_managers(award_id,year_id,lg_id,player_id); 
+    ON year2024.awards_share_managers(award_id,year_id,lg_id,player_id); 
 
 -- ====================================================================================================
 -- awards_share_players
@@ -147,13 +147,13 @@ CREATE TABLE IF NOT EXISTS year2024.awards_share_players (
     year_id int NOT NULL,
     lg_id varchar(2) NOT NULL,
     player_id varchar(10) NOT NULL,
-    pointsWon double precision DEFAULT NULL,
-    pointsMax int DEFAULT NULL,
-    votesFirst double precision DEFAULT NULL
+    points_won double precision DEFAULT NULL,
+    points_max int DEFAULT NULL,
+    votes_first double precision DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_awards_share_players_1  
-ON year2024.awards_share_players(award_id,year_id,lg_id,player_id); 
+    ON year2024.awards_share_players(award_id,year_id,lg_id,player_id); 
 
 -- ====================================================================================================
 -- batting
@@ -167,29 +167,29 @@ CREATE TABLE IF NOT EXISTS year2024.batting (
     stint int NOT NULL,
     team_id varchar(3) DEFAULT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    G int DEFAULT NULL,
-    G_batting int DEFAULT NULL,
-    AB int DEFAULT NULL,
-    R int DEFAULT NULL,
-    H int DEFAULT NULL,
-    H2B int DEFAULT NULL,
-    H3B int DEFAULT NULL,
-    HR int DEFAULT NULL,
-    RBI int DEFAULT NULL,
-    SB int DEFAULT NULL,
-    CS int DEFAULT NULL,
-    BB int DEFAULT NULL,
-    SO int DEFAULT NULL,
-    IBB int DEFAULT NULL,
-    HBP int DEFAULT NULL,
-    SH int DEFAULT NULL,
-    SF int DEFAULT NULL,
-    GIDP int DEFAULT NULL,
-    G_OLD int DEFAULT NULL
+    games int DEFAULT NULL,
+    games_batting int DEFAULT NULL,
+    at_bats int DEFAULT NULL,
+    runs int DEFAULT NULL,
+    hits int DEFAULT NULL,
+    doubles int DEFAULT NULL,
+    triples int DEFAULT NULL,
+    home_runs int DEFAULT NULL,
+    runs_batted_in int DEFAULT NULL,
+    stolen_bases int DEFAULT NULL,
+    caught_stealing int DEFAULT NULL,
+    walks int DEFAULT NULL,
+    strikeouts int DEFAULT NULL,
+    intentional_walks int DEFAULT NULL,
+    hit_by_pitch int DEFAULT NULL,
+    sacrifice_hits int DEFAULT NULL,
+    sacrifice_flys int DEFAULT NULL,
+    ground_into_double_plays int DEFAULT NULL,
+    games_old int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_batting_1  
-ON year2024.batting(player_id,year_id,stint); 
+    ON year2024.batting(player_id,year_id,stint); 
 
 -- ====================================================================================================
 -- batting_post
@@ -203,27 +203,27 @@ CREATE TABLE IF NOT EXISTS year2024.batting_post (
     player_id varchar(10) NOT NULL,
     team_id varchar(3) DEFAULT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    G int DEFAULT NULL,
-    AB int DEFAULT NULL,
-    R int DEFAULT NULL,
-    H int DEFAULT NULL,
-    H2B int DEFAULT NULL,
-    H3B int DEFAULT NULL,
-    HR int DEFAULT NULL,
-    RBI int DEFAULT NULL,
-    SB int DEFAULT NULL,
-    CS int DEFAULT NULL,
-    BB int DEFAULT NULL,
-    SO int DEFAULT NULL,
-    IBB int DEFAULT NULL,
-    HBP int DEFAULT NULL,
-    SH int DEFAULT NULL,
-    SF int DEFAULT NULL,
-    GIDP int DEFAULT NULL
+    games int DEFAULT NULL,
+    at_bats int DEFAULT NULL,
+    runs int DEFAULT NULL,
+    hits int DEFAULT NULL,
+    doubles int DEFAULT NULL,
+    triples int DEFAULT NULL,
+    home_runs int DEFAULT NULL,
+    runs_batted_in int DEFAULT NULL,
+    stolen_bases int DEFAULT NULL,
+    caught_stealing int DEFAULT NULL,
+    walks int DEFAULT NULL,
+    strikeouts int DEFAULT NULL,
+    intentional_walks int DEFAULT NULL,
+    hit_by_pitch int DEFAULT NULL,
+    sacrifice_hits int DEFAULT NULL,
+    sacrifice_flys int DEFAULT NULL,
+    ground_into_double_plays int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_batting_post_1  
-ON year2024.batting_post(year_id,round,player_id); 
+    ON year2024.batting_post(year_id,round,player_id); 
 
 -- ====================================================================================================
 -- college_playing
@@ -238,7 +238,7 @@ CREATE TABLE IF NOT EXISTS year2024.college_playing (
 );
 
 CREATE UNIQUE INDEX ui_college_playing_1  
-ON year2024.college_playing(player_id, school_id, year_id); 
+    ON year2024.college_playing(player_id, school_id, year_id); 
 
 -- ====================================================================================================
 -- fielding
@@ -252,23 +252,23 @@ CREATE TABLE IF NOT EXISTS year2024.fielding (
     stint int NOT NULL,
     team_id varchar(3) DEFAULT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    POS varchar(2) NOT NULL,
-    G int DEFAULT NULL,
-    GS int DEFAULT NULL,
-    InnOuts int DEFAULT NULL,
-    PO int DEFAULT NULL,
-    A int DEFAULT NULL,
-    E int DEFAULT NULL,
-    DP int DEFAULT NULL,
-    PB int DEFAULT NULL,
-    WP int DEFAULT NULL,
-    SB int DEFAULT NULL,
-    CS int DEFAULT NULL,
-    ZR double precision DEFAULT NULL
+    position varchar(2) NOT NULL,
+    games int DEFAULT NULL,
+    games_started int DEFAULT NULL,
+    inning_outs int DEFAULT NULL,
+    put_outs int DEFAULT NULL,
+    assists int DEFAULT NULL,
+    errors int DEFAULT NULL,
+    double_plays int DEFAULT NULL,
+    passed_balls int DEFAULT NULL,
+    wild_pitches int DEFAULT NULL,
+    stolen_bases int DEFAULT NULL,
+    caught_stealing int DEFAULT NULL,
+    zone_rating double precision DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_fielding_1  
-ON year2024.fielding(player_id,year_id,stint,POS); 
+    ON year2024.fielding(player_id,year_id,stint,position); 
 
 -- ====================================================================================================
 -- fielding_of
@@ -280,13 +280,13 @@ CREATE TABLE IF NOT EXISTS year2024.fielding_of (
     player_id varchar(10) NOT NULL,
     year_id int NOT NULL,
     stint int NOT NULL,
-    Glf int DEFAULT NULL,
-    Gcf int DEFAULT NULL,
-    Grf int DEFAULT NULL
+    games_played_left_field int DEFAULT NULL,
+    games_played_center_field int DEFAULT NULL,
+    games_played_right_field int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_fielding_of_1  
-ON year2024.fielding_of(player_id,year_id,stint); 
+    ON year2024.fielding_of(player_id,year_id,stint); 
 
 -- ====================================================================================================
 -- fielding_of_split
@@ -300,23 +300,23 @@ CREATE TABLE IF NOT EXISTS year2024.fielding_of_split (
     stint int NOT NULL,
     team_id varchar(3) DEFAULT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    POS varchar(2) NOT NULL,
-    G int DEFAULT NULL,
-    GS int DEFAULT NULL,
-    InnOuts int DEFAULT NULL,
-    PO int DEFAULT NULL,
-    A int DEFAULT NULL,
-    E int DEFAULT NULL,
-    DP int DEFAULT NULL,
-    PB int DEFAULT NULL,
-    WP int DEFAULT NULL,
-    SB int DEFAULT NULL,
-    CS int DEFAULT NULL,
-    ZR double precision DEFAULT NULL
+    position varchar(2) NOT NULL,
+    games int DEFAULT NULL,
+    games_started int DEFAULT NULL,
+    inning_outs int DEFAULT NULL,
+    put_outs int DEFAULT NULL,
+    assists int DEFAULT NULL,
+    errors int DEFAULT NULL,
+    double_plays int DEFAULT NULL,
+    passed_balls int DEFAULT NULL,
+    wild_pitches int DEFAULT NULL,
+    stolen_bases int DEFAULT NULL,
+    caught_stealing int DEFAULT NULL,
+    zone_rating double precision DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_fielding_of_split_1  
-ON year2024.fielding_of_split(player_id,year_id,stint,POS); 
+    ON year2024.fielding_of_split(player_id,year_id,stint,position); 
 
 -- ====================================================================================================
 -- fielding_post
@@ -330,22 +330,22 @@ CREATE TABLE IF NOT EXISTS year2024.fielding_post (
     team_id varchar(3) DEFAULT NULL,
     lg_id varchar(2) DEFAULT NULL,
     round varchar(10) NOT NULL,
-    POS varchar(2) NOT NULL,
-    G int DEFAULT NULL,
-    GS int DEFAULT NULL,
-    InnOuts int DEFAULT NULL,
-    PO int DEFAULT NULL,
-    A int DEFAULT NULL,
-    E int DEFAULT NULL,
-    DP int DEFAULT NULL,
-    TP int DEFAULT NULL,
-    PB int DEFAULT NULL,
-    SB int DEFAULT NULL,
-    CS int DEFAULT NULL
+    position varchar(2) NOT NULL,
+    games int DEFAULT NULL,
+    games_started int DEFAULT NULL,
+    inning_outs int DEFAULT NULL,
+    put_outs int DEFAULT NULL,
+    assists int DEFAULT NULL,
+    errors int DEFAULT NULL,
+    double_plays int DEFAULT NULL,
+    triple_plays int DEFAULT NULL,
+    passed_balls int DEFAULT NULL,
+    stolen_bases int DEFAULT NULL,
+    caught_stealing int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_fielding_post_1  
-ON year2024.fielding_post(player_id,year_id,round,POS); 
+    ON year2024.fielding_post(player_id,year_id,round,position); 
 
 -- ====================================================================================================
 -- hall_of_fame
@@ -359,7 +359,7 @@ CREATE TABLE IF NOT EXISTS year2024.hall_of_fame (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     player_id varchar(10) NOT NULL,
     year_id int NOT NULL,
-    votedBy varchar(64) NOT NULL DEFAULT '',
+    voted_by varchar(64) NOT NULL DEFAULT '',
     ballots int DEFAULT NULL,    /* Update data from ,NA,NA,NA to ,,, */
     needed int DEFAULT NULL,     /* Update data from ,NA,NA,NA to ,,, */
     votes int DEFAULT NULL,      /* Update data from ,NA,NA,NA to ,,, */
@@ -369,7 +369,7 @@ CREATE TABLE IF NOT EXISTS year2024.hall_of_fame (
 );
 
 CREATE UNIQUE INDEX ui_hall_of_fame_1  
-ON year2024.hall_of_fame(player_id,year_id,votedBy); 
+    ON year2024.hall_of_fame(player_id,year_id,voted_by); 
 
 -- ====================================================================================================
 -- home_games
@@ -381,7 +381,7 @@ ON year2024.hall_of_fame(player_id,year_id,votedBy);
 DROP TABLE IF EXISTS year2024.home_games;
 CREATE TABLE IF NOT EXISTS year2024.home_games (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    year int NOT NULL,
+    year_id int NOT NULL,
     league varchar(64) NULL DEFAULT '',
     team varchar(10) DEFAULT NULL,
     park varchar(10) DEFAULT NULL,
@@ -393,7 +393,7 @@ CREATE TABLE IF NOT EXISTS year2024.home_games (
 );
 
 CREATE UNIQUE INDEX ui_home_games_1  
-ON year2024.home_games(year,league,team,park); 
+    ON year2024.home_games(year_id,league,team,park); 
 
 -- ====================================================================================================
 -- managers
@@ -406,16 +406,16 @@ CREATE TABLE IF NOT EXISTS year2024.managers (
     year_id int NOT NULL,
     team_id varchar(3) NOT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    inseason int NOT NULL,
-    G int DEFAULT NULL,
-    W int DEFAULT NULL,
-    L int DEFAULT NULL,
+    in_season int NOT NULL,
+    games int DEFAULT NULL,
+    wins int DEFAULT NULL,
+    losses int DEFAULT NULL,
     rank int DEFAULT NULL,
-    plyrMgr varchar(1) DEFAULT NULL
+    player_manager varchar(1) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_managers_1  
-ON year2024.managers(year_id,team_id,inseason); 
+    ON year2024.managers(year_id,team_id,in_season); 
 
 -- ====================================================================================================
 -- managers_half
@@ -428,16 +428,16 @@ CREATE TABLE IF NOT EXISTS year2024.managers_half (
     year_id int NOT NULL,
     team_id varchar(3) NOT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    inseason int DEFAULT NULL,
+    in_season int DEFAULT NULL,
     half int NOT NULL,
-    G int DEFAULT NULL,
-    W int DEFAULT NULL,
-    L int DEFAULT NULL,
+    games int DEFAULT NULL,
+    wins int DEFAULT NULL,
+    losses int DEFAULT NULL,
     rank int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_managers_half_1  
-ON year2024.managers_half(year_id,team_id,player_id,half); 
+    ON year2024.managers_half(year_id,team_id,player_id,half); 
 
 -- ====================================================================================================
 -- parks
@@ -450,16 +450,16 @@ DROP TABLE IF EXISTS year2024.parks;
 CREATE TABLE IF NOT EXISTS year2024.parks (
     park_id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     id int NOT NULL,
-    parkalias varchar(100) DEFAULT NULL,
-    parkkey varchar(50) NOT NULL,
-    parkname varchar(100) DEFAULT NULL,
+    park_alias varchar(100) DEFAULT NULL,
+    park_key varchar(50) NOT NULL,
+    park_name varchar(100) DEFAULT NULL,
     city varchar(50) DEFAULT NULL,
     state varchar(50) DEFAULT NULL,
     country varchar(50) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_parks_1  
-ON year2024.parks(park_id); 
+    ON year2024.parks(park_id); 
 
 -- ====================================================================================================
 -- people
@@ -467,36 +467,36 @@ ON year2024.parks(park_id);
 
 DROP TABLE IF EXISTS year2024.people;
 CREATE TABLE IF NOT EXISTS year2024.people (
-    PEOPLE__id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    people_id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     id int NOT NULL,
     player_id varchar(10) DEFAULT NULL,
-    birthYear int DEFAULT NULL,
-    birthMonth int DEFAULT NULL,
-    birthDay int DEFAULT NULL,
-    birthCity varchar(50) DEFAULT NULL,
-    birthCountry varchar(50) DEFAULT NULL,
-    birthState varchar(50) DEFAULT NULL,
-    deathYear int DEFAULT NULL,
-    deathMonth int DEFAULT NULL,
-    deathDay int DEFAULT NULL,
-    deathCountry varchar(50) DEFAULT NULL,
-    deathState varchar(50) DEFAULT NULL,
-    deathCity varchar(50) DEFAULT NULL,
-    nameFirst varchar(50) DEFAULT NULL,
-    nameLast varchar(50) DEFAULT NULL,
-    nameGiven varchar(255) DEFAULT NULL,
+    birth_year int DEFAULT NULL,
+    birth_month int DEFAULT NULL,
+    birth_day int DEFAULT NULL,
+    birth_city varchar(50) DEFAULT NULL,
+    birth_country varchar(50) DEFAULT NULL,
+    birth_state varchar(50) DEFAULT NULL,
+    death_year int DEFAULT NULL,
+    death_month int DEFAULT NULL,
+    death_day int DEFAULT NULL,
+    death_country varchar(50) DEFAULT NULL,
+    death_state varchar(50) DEFAULT NULL,
+    death_city varchar(50) DEFAULT NULL,
+    name_first varchar(50) DEFAULT NULL,
+    name_last varchar(50) DEFAULT NULL,
+    name_given varchar(255) DEFAULT NULL,
     weight int DEFAULT NULL,
     height double precision DEFAULT NULL,
     bats varchar(1) DEFAULT NULL,
     throws varchar(1) DEFAULT NULL,
     debut varchar(10) DEFAULT NULL,
     bbref_id varchar(9) DEFAULT NULL,
-    finalGame varchar(10) DEFAULT NULL,
+    final_game varchar(10) DEFAULT NULL,
     retro_id varchar(9) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_people_1  
-ON year2024.people(player_id); 
+    ON year2024.people(player_id); 
 
 -- ====================================================================================================
 -- pitching
@@ -510,35 +510,35 @@ CREATE TABLE IF NOT EXISTS year2024.pitching (
     stint int NOT NULL,
     team_id varchar(3) DEFAULT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    W int DEFAULT NULL,
-    L int DEFAULT NULL,
-    G int DEFAULT NULL,
-    GS int DEFAULT NULL,
-    CG int DEFAULT NULL,
-    SHO int DEFAULT NULL,
-    SV int DEFAULT NULL,
-    IPouts int DEFAULT NULL,
-    H int DEFAULT NULL,
-    ER int DEFAULT NULL,
-    HR int DEFAULT NULL,
-    BB int DEFAULT NULL,
-    SO int DEFAULT NULL,
-    BAOpp double precision DEFAULT NULL,
-    ERA double precision DEFAULT NULL,
-    IBB int DEFAULT NULL,
-    WP int DEFAULT NULL,
-    HBP int DEFAULT NULL,
-    BK int DEFAULT NULL,
-    BFP int DEFAULT NULL,
-    GF int DEFAULT NULL,
-    R int DEFAULT NULL,
-    SH int DEFAULT NULL,
-    SF int DEFAULT NULL,
-    GIDP int DEFAULT NULL
+    wins int DEFAULT NULL,
+    losses int DEFAULT NULL,
+    games int DEFAULT NULL,
+    games_started int DEFAULT NULL,
+    complete_games int DEFAULT NULL,
+    shut_outs int DEFAULT NULL,
+    saves int DEFAULT NULL,
+    outs_pitched int DEFAULT NULL,
+    hits int DEFAULT NULL,
+    earned_runs int DEFAULT NULL,
+    home_runs int DEFAULT NULL,
+    walks int DEFAULT NULL,
+    strikeouts int DEFAULT NULL,
+    opponent_batting_average double precision DEFAULT NULL,
+    earned_run_average double precision DEFAULT NULL,
+    intentional_walks int DEFAULT NULL,
+    wild_pitches int DEFAULT NULL,
+    hit_by_pitch int DEFAULT NULL,
+    balks int DEFAULT NULL,
+    batters_faced int DEFAULT NULL,
+    games_finished int DEFAULT NULL,
+    runs int DEFAULT NULL,
+    sacrifice_hits int DEFAULT NULL,
+    sacrifice_flys int DEFAULT NULL,
+    ground_into_double_plays int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_pitching_1  
-ON year2024.pitching(player_id,year_id,stint); 
+    ON year2024.pitching(player_id,year_id,stint); 
 
 -- ====================================================================================================
 -- pitching_post
@@ -552,35 +552,35 @@ CREATE TABLE IF NOT EXISTS year2024.pitching_post (
     round varchar(10) NOT NULL,
     team_id varchar(3) DEFAULT NULL,
     lg_id varchar(2) DEFAULT NULL,
-    W int DEFAULT NULL,
-    L int DEFAULT NULL,
-    G int DEFAULT NULL,
-    GS int DEFAULT NULL,
-    CG int DEFAULT NULL,
-    SHO int DEFAULT NULL,
-    SV int DEFAULT NULL,
-    IPouts int DEFAULT NULL,
-    H int DEFAULT NULL,
-    ER int DEFAULT NULL,
-    HR int DEFAULT NULL,
-    BB int DEFAULT NULL,
-    SO int DEFAULT NULL,
-    BAOpp double precision DEFAULT NULL,
-    ERA double precision DEFAULT NULL,
-    IBB int DEFAULT NULL,
-    WP int DEFAULT NULL,
-    HBP int DEFAULT NULL,
-    BK int DEFAULT NULL,
-    BFP int DEFAULT NULL,
-    GF int DEFAULT NULL,
-    R int DEFAULT NULL,
-    SH int DEFAULT NULL,
-    SF int DEFAULT NULL,
-    GIDP int DEFAULT NULL
+    wins int DEFAULT NULL,
+    losses int DEFAULT NULL,
+    games int DEFAULT NULL,
+    games_started int DEFAULT NULL,
+    complete_games int DEFAULT NULL,
+    shut_outs int DEFAULT NULL,
+    saves int DEFAULT NULL,
+    outs_pitched int DEFAULT NULL,
+    hits int DEFAULT NULL,
+    earned_runs int DEFAULT NULL,
+    home_runs int DEFAULT NULL,
+    walks int DEFAULT NULL,
+    strikeouts int DEFAULT NULL,
+    opponent_batting_average double precision DEFAULT NULL,
+    earned_run_average double precision DEFAULT NULL,
+    intentional_walks int DEFAULT NULL,
+    wild_pitches int DEFAULT NULL,
+    hit_by_pitch int DEFAULT NULL,
+    balks int DEFAULT NULL,
+    batters_faced int DEFAULT NULL,
+    games_finished int DEFAULT NULL,
+    runs int DEFAULT NULL,
+    sacrifice_hits int DEFAULT NULL,
+    sacrifice_flys int DEFAULT NULL,
+    ground_into_double_plays int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_pitching_post_1  
-ON year2024.pitching_post(player_id,year_id,round); 
+    ON year2024.pitching_post(player_id,year_id,round); 
 
 -- ====================================================================================================
 -- salaries
@@ -597,7 +597,7 @@ CREATE TABLE IF NOT EXISTS year2024.salaries (
 );
 
 CREATE UNIQUE INDEX ui_salaries_1  
-ON year2024.salaries(year_id,team_id,lg_id,player_id); 
+    ON year2024.salaries(year_id,team_id,lg_id,player_id); 
 
 -- ====================================================================================================
 -- schools
@@ -614,7 +614,7 @@ CREATE TABLE IF NOT EXISTS year2024.schools (
 );
 
 CREATE UNIQUE INDEX ui_schools_1  
-ON year2024.schools(school_id); 
+    ON year2024.schools(school_id); 
 
 -- ====================================================================================================
 -- series_post
@@ -625,17 +625,17 @@ CREATE TABLE IF NOT EXISTS year2024.series_post (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     year_id int NOT NULL,
     round varchar(5) NOT NULL,
-    team_idwinner varchar(3) DEFAULT NULL,
-    lg_idwinner varchar(2) DEFAULT NULL,
-    team_idloser varchar(3) DEFAULT NULL,
-    lg_idloser varchar(2) DEFAULT NULL,
+    team_id_winner varchar(3) DEFAULT NULL,
+    lg_id_winner varchar(2) DEFAULT NULL,
+    team_id_loser varchar(3) DEFAULT NULL,
+    lg_id_loser varchar(2) DEFAULT NULL,
     wins int DEFAULT NULL,
     losses int DEFAULT NULL,
     ties int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_series_post_1  
-ON year2024.series_post(year_id,round); 
+    ON year2024.series_post(year_id,round); 
 
 -- ====================================================================================================
 -- teams
@@ -649,53 +649,53 @@ CREATE TABLE IF NOT EXISTS year2024.teams (
     team_id varchar(3) NOT NULL,
     franch_id varchar(3) DEFAULT NULL,
     div_id varchar(1) DEFAULT NULL,
-    Rank int DEFAULT NULL,
-    G int DEFAULT NULL,
-    Ghome int DEFAULT NULL,
-    W int DEFAULT NULL,
-    L int DEFAULT NULL,
-    DivWin varchar(1) DEFAULT NULL,
-    WCWin varchar(1) DEFAULT NULL,
-    LgWin varchar(1) DEFAULT NULL,
-    WSWin varchar(1) DEFAULT NULL,
-    R int DEFAULT NULL,
-    AB int DEFAULT NULL,
-    H int DEFAULT NULL,
-    H2B int DEFAULT NULL,
-    H3B int DEFAULT NULL,
-    HR int DEFAULT NULL,
-    BB int DEFAULT NULL,
-    SO int DEFAULT NULL,
-    SB int DEFAULT NULL,
-    CS int DEFAULT NULL,
-    HBP int DEFAULT NULL,
-    SF int DEFAULT NULL,
-    RA int DEFAULT NULL,
-    ER int DEFAULT NULL,
-    ERA double precision DEFAULT NULL,
-    CG int DEFAULT NULL,
-    SHO int DEFAULT NULL,
-    SV int DEFAULT NULL,
-    IPouts int DEFAULT NULL,
-    HA int DEFAULT NULL,
-    HRA int DEFAULT NULL,
-    BBA int DEFAULT NULL,
-    SOA int DEFAULT NULL,
-    E int DEFAULT NULL,
-    DP int DEFAULT NULL,
-    FP double precision DEFAULT NULL,
+    rank int DEFAULT NULL,
+    games int DEFAULT NULL,
+    games_home int DEFAULT NULL,
+    wins int DEFAULT NULL,
+    losses int DEFAULT NULL,
+    division_winner varchar(1) DEFAULT NULL,
+    wild_card_winner varchar(1) DEFAULT NULL,
+    league_winner varchar(1) DEFAULT NULL,
+    world_series_winner varchar(1) DEFAULT NULL,
+    runs int DEFAULT NULL,
+    at_bats int DEFAULT NULL,
+    hits int DEFAULT NULL,
+    doubles int DEFAULT NULL,
+    triples int DEFAULT NULL,
+    home_runs int DEFAULT NULL,
+    walks int DEFAULT NULL,
+    strikeouts int DEFAULT NULL,
+    stolen_bases int DEFAULT NULL,
+    caught_stealing int DEFAULT NULL,
+    hit_by_pitch int DEFAULT NULL,
+    sacrifice_flys int DEFAULT NULL,
+    opponent_run_scored int DEFAULT NULL,
+    earned_runs int DEFAULT NULL,
+    earned_run_average double precision DEFAULT NULL,
+    complete_games int DEFAULT NULL,
+    shut_outs int DEFAULT NULL,
+    saves int DEFAULT NULL,
+    outs_pitched int DEFAULT NULL,
+    hits_allowed int DEFAULT NULL,
+    home_runs_allowed int DEFAULT NULL,
+    walks_allowed int DEFAULT NULL,
+    strikeouts_allowed int DEFAULT NULL,
+    errors int DEFAULT NULL,
+    double_plays int DEFAULT NULL,
+    fielding_percentage double precision DEFAULT NULL,
     name varchar(50) DEFAULT NULL,
     park varchar(255) DEFAULT NULL,
     attendance int DEFAULT NULL,
-    BPF int DEFAULT NULL,
-    PPF int DEFAULT NULL,
-    team_idBR varchar(3) DEFAULT NULL,
-    team_idlahman45 varchar(3) DEFAULT NULL,
-    team_idretro varchar(3) DEFAULT NULL
+    batters_park_factor int DEFAULT NULL,
+    pitchers_park_factor int DEFAULT NULL,
+    team_id_baseball_reference varchar(3) DEFAULT NULL,
+    team_id_lahman45 varchar(3) DEFAULT NULL,
+    team_id_retrosheet varchar(3) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_teams_1  
-ON year2024.teams(year_id,lg_id,team_id); 
+    ON year2024.teams(year_id,lg_id,team_id); 
 
 -- ====================================================================================================
 -- teams_franchises
@@ -705,13 +705,13 @@ DROP TABLE IF EXISTS year2024.teams_franchises;
 CREATE TABLE IF NOT EXISTS year2024.teams_franchises (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     franch_id varchar(3) NOT NULL,
-    franchName varchar(50) DEFAULT NULL,
+    franch_name varchar(50) DEFAULT NULL,
     active varchar(2) DEFAULT NULL,
-    NAassoc varchar(3) DEFAULT NULL
+    national_association_id varchar(3) DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_teams_franchises_1  
-ON year2024.teams_franchises(franch_id); 
+    ON year2024.teams_franchises(franch_id); 
 
 -- ====================================================================================================
 -- teams_half
@@ -723,16 +723,16 @@ CREATE TABLE IF NOT EXISTS year2024.teams_half (
     year_id int NOT NULL,
     lg_id varchar(2) NOT NULL,
     team_id varchar(3) NOT NULL,
-    Half varchar(1) NOT NULL,
+    half varchar(1) NOT NULL,
     div_id varchar(1) DEFAULT NULL,
-    DivWin varchar(1) DEFAULT NULL,
-    Rank int DEFAULT NULL,
-    G int DEFAULT NULL,
-    W int DEFAULT NULL,
-    L int DEFAULT NULL
+    division_winner varchar(1) DEFAULT NULL,
+    rank int DEFAULT NULL,
+    games int DEFAULT NULL,
+    wins int DEFAULT NULL,
+    losses int DEFAULT NULL
 );
 
 CREATE UNIQUE INDEX ui_teams_half_1  
-ON year2024.teams_half(year_id,team_id,lg_id,Half); 
+    ON year2024.teams_half(year_id,team_id,lg_id,half); 
 
 END TRANSACTION;
