@@ -20,7 +20,8 @@ Concepts
 
 ------
 
-For whatever reason, the chocolatey install would fail. It ran for a while and I suspect it failed when you tried to initialize a new database cluster. This error also happened when running the install thru the wizard.
+For whatever reason, the chocolatey installation would fail. It ran for a while, and I suspect it failed when you 
+tried to initialize a new database cluster. This error also happened when running the installation through the wizard.
 
 ```
 choco install postgresql17--params '/Password:password'
@@ -28,13 +29,15 @@ choco install postgresql17--params '/Password:password'
 
 As a result, I just downloaded the executable from the [website](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) 
 
-Version installed: postgresql-17.2-3-windows-x64.exe
+Version installed: postgresql-17.5-2-windows-x64.exe
 
 Run the install as admin
 
 Install to: C:\PostgreSQL\17
 
-Want to eliminate spaces, like "Program File" that can make it just a tad more difficult when run command line utilities.
+I prefer to have an installation without spaces (like "Program File"). This just makes it easier to work with the command line tools.
+
+When you run the installer, you will be prompted to select the components to install.
 
 Select all options:
 
@@ -67,7 +70,7 @@ Stack Builder Installation Directory: C:\PostgreSQL\17
 Installation Log: C:\Users\dd00865\AppData\Local\Temp\install-postgresql.log
 ```
 
-You might get an error that initializing the database cluster failed. Not a bid deal as we will create the database server in the following steps.
+You might get an error that initializing the database cluster failed. Not a big deal as we will create the database server in the following steps.
 
 ### Mac/OS Installation Notes
 
