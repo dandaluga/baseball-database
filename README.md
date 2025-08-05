@@ -1,6 +1,6 @@
 
 
-# Baseball Databank Database Load
+# Baseball Reference Database Load (aka the Lahman Database)
 
 This is an example repo that demonstrates the creation and loading of a PostgreSQL database. 
 
@@ -15,18 +15,18 @@ This is just an example of how to load data into a PostgreSQL database. The base
 
 Each year is broken down into a separate folder so we can segment season into it's own schema. So, as each season is completed, a new schema will be created (year20XX) to store the data for that year. This was done in the event the schema changes from one year to the next and we still have the data for the previous year in the schema that was valid for that year.
 
-**These are the folders provided by the Baseball Databank for that year.**
+**These are the files are provided by the SABR by year.**
 
-These files are create by getting the zip file in CSV format from [here](https://github.com/chadwickbureau/baseballdatabank/tags). Then unzip the file and it will create these folders:
-
-* `core/` contains the code data. 
-* `contrib/` contains files which are manually maintained by others using the same identifier system as the core.
-* `upstream/` contains files used to construct the databank.
+These files are acquired by downloading the CSV files from [here](https://sabr.app.box.com/s/rsry2en86bimvybwsorumfsxmf91002a). I put
+the files in the data folder.
 
 **These are the database schema and data load scripts needed for that year.**
 
-* baseball_schema.ddl contains the database schema needed to create the tables for the year being created.
-* load_data.sql contains the data needed to load the schema for that year.
+* 01_create_schema.ddl contains the database schema needed to create the tables for the year being created.
+* 02_create_views.ddl contains any views needed to support additional queries.
+* 03_grant_privledges.ddl grants the needed security privledges.
+* 04_load_data_mac.sql contains the scripts needed to load the csv data files on MacOS.
+* 04_load_data_win.sql contains the scripts needed to load the csv data files on Windows.
 * drop_schema.sql contains the script to drop all the tables in a particular schema
 
 ## Loading the Database (Windows)
@@ -106,7 +106,7 @@ C:\PostgreSQL\17\bin\dropdb lahman
 C:\PostgreSQL\17\bin\dropuser mlbapi
 ```
 
-### Loading Baseball Reference Database (Mac/OS)
+### Loading Baseball Reference Database (MacOS)
 
 #### Check the Version
 
