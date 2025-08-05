@@ -29,9 +29,9 @@ choco install postgresql17--params '/Password:password'
 
 As a result, I just downloaded the executable from the [website](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) 
 
-Version installed: postgresql-17.5-2-windows-x64.exe
+Version installed: postgresql-17.5-3-windows-x64.exe
 
-Run the install as admin
+Run the installation as admin
 
 Install to: C:\PostgreSQL\17
 
@@ -48,7 +48,7 @@ Select all options:
 
 Select a data directory for the server. I chose C:\dev\db-data\postgresql\17
 
-Choose a password for your superuser (postgres)
+Choose a password for your superuser (postgres). I used "password" for simplicity, but you should use a strong password in production.
 
 Keep the default PostgreSQL port of 5432
 

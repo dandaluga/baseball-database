@@ -41,14 +41,14 @@ Read the PostgreSQL installation notes located [here](INSTALL.md).
 C:\PostgreSQL\17\bin\pg_ctl --version
 ```
 
-#### Create New Database Cluster
+#### Create a New Database Cluster
 
 ------
 
 See: https://www.postgresql.org/docs/17/app-initdb.html
 
 ```powershell
-C:\PostgreSQL\17\bin\initdb -D c:\dev\db-data\postgresql\17 -U postgres
+C:\PostgreSQL\17\bin\initdb -D c:\dev\db-data\postgresql\17 -U postgres -E UTF8
 ```
 
 #### Start/Stop Cluster
@@ -74,7 +74,7 @@ C:\PostgreSQL\17\bin\createuser --superuser --createdb --createrole --pwprompt d
 C:\PostgreSQL\17\bin\createuser --no-createdb --no-superuser --no-createrole --pwprompt mlbapi
 
 -- Create the database
-C:\PostgreSQL\17\bin\createdb lahman
+C:\PostgreSQL\17\bin\createdb lahman -E UTF8
 
 -- Create the table structure for the specific year. This will also create the schema (owner).
 C:\PostgreSQL\17\bin\psql -d lahman -f c:\dev\baseball\baseball-database\lahman\2022\scripts\create_schema.ddl
@@ -128,7 +128,7 @@ You can create multiple clusters on the server. In that case, you will need to u
 each cluster along with any other configuration to handle running multiple clusters concurrently.
 
 ```shell
-initdb -D ~/Developer/db/cluster1 -U dandaluga
+initdb -D ~/Developer/db/cluster1 -U dandaluga -E UTF8
 ```
 
 Here is the output:
